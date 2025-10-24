@@ -7,5 +7,4 @@ create table if not exists public.invoices (
   Supplier Invoice No. text,
   Comments text,
   Supplier Invoice Date date,
-  last_updated timestamptz default now()
-);
+  );
