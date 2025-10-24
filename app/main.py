@@ -161,6 +161,7 @@ def draft_email_genai(base:str, vendor_name:str, row:Optional[Dict], invoice_id:
     """If OPENAI_API_KEY provided, refine the draft for tone/clarity. Fallback to base."""
     if not OPENAI_AVAILABLE: return base
     api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
+    print ("printing the API key", api_key) 
     if not api_key: return base
     try:
         client = OpenAI(api_key=api_key)
