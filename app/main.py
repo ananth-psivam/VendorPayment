@@ -106,6 +106,7 @@ def storage_list(sb: Client, bucket: str, prefix: str = "", include_one_subfolde
         # Heuristic: files typically have 'id' or 'metadata.size'
         is_file = bool(it.get("id")) or (isinstance(it.get("metadata"), dict) and "size" in it["metadata"])
         path = f"{prefix.rstrip('/')}/{it['name']}" if prefix else it["name"]
+        print (path)
         if is_file:
             names.append(path)
         elif include_one_subfolder:
@@ -118,6 +119,7 @@ def storage_list(sb: Client, bucket: str, prefix: str = "", include_one_subfolde
 
     # Only keep pdf/html/htm
     names = [n for n in names if n.lower().endswith((".pdf", ".html", ".htm"))]
+    print (names)
     return names
 
 
