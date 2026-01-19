@@ -244,6 +244,9 @@ def main():
 
     # List files
     files = storage_list(sb, bucket, prefix, include_one_subfolder=include_sub)
+    st.info(bucket)
+    st.info(prefix)
+    st.info(sb)
     st.markdown(f"**Found {len(files)} files** in bucket `{bucket}` with prefix `{prefix or '(root)'}`.")
     if not files:
         st.info("No PDF/HTML files found here. Check bucket/prefix or Storage policies.")
